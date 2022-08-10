@@ -12,6 +12,7 @@ update()
 
 function previous() {
 
+    //by using this if else, the current will be moved to 4th index after 0
     if(current == 0){
         current = 4;
     }
@@ -21,6 +22,8 @@ function previous() {
     update();
 }
 function next() {
+
+    //similar logic to prev
     if(current == 4){
         current = 0;
     }
@@ -35,7 +38,7 @@ function update() {
         boxes[i].classList.remove('previous', 'next', 'current');
 
     }
-
+    //using if else to move the previous box to 4th index when current is 0, so that the circular queue continues.
     if(current == 0){
         boxes[4].classList.add('previous');
     }
@@ -45,6 +48,7 @@ function update() {
 
     boxes[current].classList.add('current');
 
+    //using if else to move the previous box to 0th index when current is 4, so that the circular queue continues.
     if(current == 4){
         boxes[0].classList.add('next');
     }
